@@ -1,11 +1,11 @@
 class BinarySearch(list):
     def __init__(self, a, b):
-        self.array = [i for i in range(b, a * b, b)]
+        self.array = [i for i in range(b, a * b + 1, b)]
         self.length = len(self.array)
+        super(BinarySearch, self).__init__(self.array)
 
     def search(self, param):
         count = 0
-        print(self.array)
         array = self.array
         smaller = 0
         bigger = len(array)
@@ -18,7 +18,7 @@ class BinarySearch(list):
             elif param > value:
                 if smaller == middle:
                     break
-                smaller = middle + 1
+                smaller = middle
             else:
                 bigger = middle - 1
         return {"count": count, "index": -1}
